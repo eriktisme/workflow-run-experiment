@@ -1,0 +1,13 @@
+on: [push]
+
+jobs:
+  bar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: baz
+        run: |
+          echo "Baz"
+          exit 1
