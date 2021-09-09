@@ -1,3 +1,5 @@
+name: bar
+
 on: [push]
 
 jobs:

@@ -1,3 +1,5 @@
+name: baz
+
 on: [push]
 
 jobs:
