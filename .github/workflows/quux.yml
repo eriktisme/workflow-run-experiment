@@ -1,0 +1,27 @@
+name: quux
+
+on:
+  workflow_run:
+    workflows: ['bar']
+    types: ['completed']
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: foo
+        run: echo "Foo was successful"
+
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: foo
+        run: echo "Foo failed"
